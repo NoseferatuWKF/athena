@@ -1,3 +1,5 @@
+thrift
+flatbuffer
 protobuf
 ```proto
 syntax = "proto3";

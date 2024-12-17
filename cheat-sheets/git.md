@@ -110,12 +110,10 @@ git remote get-url <remote> # get the path for a remote
 git remote show <remote> # show remote information
 git remote -v # get all remote push/pull
 
-# push to multiple remote
-git remote add origin /path/to/remote
-git remote add alternate /path/to/another/remote
-git remote set-url --add --push origin /path/to/remote
+# push to another url with same remote
 git remote set-url --add --push origin /path/to/another/remote
-git remote show origin # this will show two push remotes
+# check if push url is added, if not add it again
+git remote -v
 ```
 
 worktree
@@ -176,6 +174,16 @@ git apply <diff>
 curl <url> | git apply
 # if all else fails
 patch -Np1 -i /path/to/patch.diff
+```
+
+bundle
+```bash
+# create full backup including branches
+git bundle create /path/to/bundle --all
+# create bundle from a single branch
+git bundle create /path/to/bundle <branch>
+# restore bundle
+git clone /path/to/bundle /path/to/repo
 ```
 
 submodule

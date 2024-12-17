@@ -1,6 +1,5 @@
 # Basics
-
-constructors & destructors
+ constructors & destructors
 ```cs
 class Foo
 {
@@ -40,6 +39,7 @@ class Foo
 ```
 
 struct
+>[!info]
 >struct is a value type, while classes are reference types.
 ```cs
 struct Foo
@@ -145,7 +145,57 @@ class Foo : IFoo, IFoo2
 }
 ```
 
+boxing
+```cs
+struct Point
+{
+    public int X;
+    public int Y;
+}
+
+// manually boxing a value type
+Point p2 = new Point { X = 1, Y = 2 };
+object obj = p2;  // Boxing occurs here
+
+// if a method accepts an object or interface boxing will occur
+// when a value type is being passed
+void PrintObject(object obj)
+{
+    Console.WriteLine(obj);
+}
+
+Point p = new Point { X = 5, Y = 10 };
+PrintObject(p);  // Boxing occurs here
+
+// storing value types in a non-generic collection
+ArrayList list = new ArrayList();
+Point p = new Point { X = 3, Y = 4 };
+list.Add(p);  // Boxing occurs here
+
+interface IShape
+{
+    void Draw();
+}
+
+// a struct that implements an interface 
+// which is then called by an interface referrence
+// the struct, will be boxed
+struct Circle : IShape
+{
+    public void Draw()
+    {
+        Console.WriteLine("Drawing Circle");
+    }
+}
+
+Circle c = new Circle();
+IShape shape = c;  // Boxing occurs here
+shape.Draw();
+
+```
+
 enum
+>[!info]
 >it's a value type!
 ```cs
 class Foo
@@ -191,6 +241,7 @@ class Bar : Foo
 ```
 
 namespace
+>[!info]
 >kinda like a module/packages, used to group classes together
 ```cs
 namespace Foo
@@ -202,7 +253,6 @@ namespace Foo
 ```
 
 boxing and unboxing
-https://www.geeksforgeeks.org/c-sharp-boxing-unboxing/
 ```cs
 class Foo
 {
@@ -219,6 +269,7 @@ class Foo
 ```
 
 using
+>[!info]
 >used to define the scope of a resource used in a block which will be disposed once the resource is out of scope
 ```cs
 class Program
@@ -386,41 +437,8 @@ class Program
 }
 ```
 
-[pattern matching](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching)
-```cs
-class Program
-{
-	static enum Numbers
-	{
-		One,
-		Two,
-		Three,
-		Four,
-		Five,
-		Six,
-	}
-
-	static int NumbersPlusOne(Numbers n)
-	{
-		return n switch
-		{
-			One => 2,
-			Two => 3,
-			Three => 4,
-			_ => 69,
-		}
-	}
-
-	static void Main(string[] args)
-	{
-		Console.WriteLine(NumbersPlusOne(Numbers.One));
-		Console.WriteLine(NumbersPlusOne(Numbers.Two));
-		Console.WriteLine(NumbersPlusOne(Numbers.Five));
-	}
-}
-```
-
 [indexers](https://learn.microsoft.com/en-US/dotnet/csharp/programming-guide/indexers/)
+>[!info]
 >think of custom collections
 ```cs
 namespace basics
@@ -437,27 +455,9 @@ namespace basics
     }
 }
 
-var idx = new Indexerx<string>();
+var idx = new Indexers<string>();
 idx[0] = "Hmm";
 Console.WriteLine(idx[0]); // Hmm
-```
-
-top level statements
->for C# 9.0 and later
-```cs
-using System;
-
-// entry points before this looked like this
-class Program
-{
-	static void Main(string[] args)
-	{
-		Console.WriteLine("Hello World");
-	}
-}
-
-// Now we can do this
-Console.WriteLine("Hello World");
 ```
 
 [records](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record)
@@ -508,4 +508,78 @@ IEnumerable<int> foo = new List<int>();
 static void SetObject(object o) {}
 Action<object> bar = SetObject;
 Action<string> baz = bar;
+```
+
+# Functional
+
+[pattern matching](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching)
+```cs
+class Program
+{
+	static enum Numbers
+	{
+		One,
+		Two,
+		Three,
+		Four,
+		Five,
+		Six,
+	}
+
+	static int NumbersPlusOne(Numbers n)
+	{
+		return n switch
+		{
+			One => 2,
+			Two => 3,
+			Three => 4,
+			_ => 69,
+		}
+	}
+
+	static void Main(string[] args)
+	{
+		Console.WriteLine(NumbersPlusOne(Numbers.One));
+		Console.WriteLine(NumbersPlusOne(Numbers.Two));
+		Console.WriteLine(NumbersPlusOne(Numbers.Five));
+	}
+}
+```
+
+Func
+```cs
+// one string parameter, return string
+Func<string, string> func = a => a;
+// two string parameter, return string
+Func<string, string, string> func2 = (a, b) => b;
+// add T per n parameter
+```
+
+Action
+```cs
+// action is always void
+// one string parameter
+Action<string> act = a => Console.WriteLine(a);
+// two string parameter
+Action<string, string> act2 = (a, b) => Console.WriteLine(b);
+// add T per n parameter
+```
+
+# C# 9.0
+
+top level statements
+```cs
+using System;
+
+// entry points before this looked like this
+class Program
+{
+	static void Main(string[] args)
+	{
+		Console.WriteLine("Hello World");
+	}
+}
+
+// Now we can do this
+Console.WriteLine("Hello World");
 ```

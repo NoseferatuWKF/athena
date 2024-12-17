@@ -40,3 +40,9 @@ remove lock
 ```bash
 sudo rm /var/lib/pacman/db.lck
 ```
+
+aur
+```bash
+# install package with dependencies and remove build dependencies
+makepkg -sri
+```

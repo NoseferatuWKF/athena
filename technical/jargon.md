@@ -184,3 +184,6 @@ PRM
 
 DRM
 >[D]igital [R]ights [M]anagement
+
+IDL
+>[I]nterface [D]efinition [L]anguage

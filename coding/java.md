@@ -48,11 +48,13 @@ class Foo {
 
 unboxing and autoboxing
 https://javarevisited.blogspot.com/2010/10/what-is-problem-while-using-in.html#axzz82BXif5vU
+>[!info]
 >basically converting stack into heap
 ```java
 ```
 
 strings
+>[!info]
 >strings are heap allocated, and used something called a string constant pool where same/existing strings can be referenced instead of creating a new one as a string in java is immutabe
 ```java
 String a = "foo"; 
@@ -85,6 +87,7 @@ Arrays.stream(a).forEach(e -> System.out.println(e));
 packages
 
 association
+>[!info]
 >classes and contain references to other classes and form relationships such as one-to-one, one-to-many, etc.. This is known as association in java.
 ```java
 class Person {
@@ -139,6 +142,7 @@ protected class Baz {
 ```
 
 marker interface
+>[!info]
 >empty interfaces used to tag classes for a certain implementation/metadata/intent
 ```java
 // marker interface usually are serializable or cloneable
@@ -147,7 +151,25 @@ public interface Deletable {
 ```
 
 jvm
+>[!info] 
 >the jvm typically has a class loader, interpreter and a jit compiler. The class loader, allows the jvm to load the byte code classes. The jit compiler compiles the java byte code to machine code
+
+throws
+```java
+public static void writeToFile() throws IOException {
+    BufferedWriter bw = new BufferedWriter(new FileWriter("myFile.txt"));
+    bw.write("Test");
+    bw.close();
+}
+
+public static void main(String[] args) {
+	try {
+		writeToFile();
+	} catch (IOException ioe) {
+		ioe.printStackTrace();
+	}
+}
+```
 
 binding and dispatchers
 
@@ -156,3 +178,5 @@ jsp
 jdbc
 
 clone, equals, finalize methods
+
+bridge methods

@@ -1,3 +1,4 @@
+>[!hint]
 >double quotes for column names, single quotes for values
 
 INDEXES
@@ -52,7 +53,8 @@ SELECT CEIL(AVG(SALARY) - AVG(REPLACE(SALARY, '0', ''))) FROM EMPLOYEES;
 ```
 
 ORDER BY
-> by default it should be ASC first
+>[!hint]
+>by default it should be ASC first
 ```SQL
 -- double query with ordering and limit
 SELECT CITY,LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) ASC, CITY LIMIT 1;
@@ -112,6 +114,7 @@ FROM table
 ```
 
 CREATE VIEW
+>[!info]
 >virtual table that is queryable
 ```SQL
 CREATE VIEW pq AS (
@@ -129,6 +132,7 @@ GROUP BY cr
 ```
 
 JOIN
+>[!info]
 >- `INNER JOIN`: Returns records that have matching values in both tables
 >- `LEFT JOIN`: Returns all records from the left table, and the matched records from the right table
 >- `RIGHT JOIN`: Returns all records from the right table, and the matched records from the left table

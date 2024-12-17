@@ -7,21 +7,37 @@ cfdisk # IMO, most user friendly
 fdisk
 parted 
 
+# block device
 df -h # list directory mounts
 du -sh # current directory size
-
 mkfs # format filesystem
 mkswap # format swap
 mount # mount disk
 swapon # mount swap
 
-mkinitcpio -P # ram
+# ram
+mkinitcpio -P
 
+# devices
 lspci -nnk # list devices summary
 lspci -v # list devices verbose
-lsblk -f # block devices with fs
+lsblk -f # mount points with type of fs
 lscpu # dump cpu information
 ss # socket statistics
+```
+
+column
+```bash
+# column first
+cat /path/to/file | column
+# row first
+cat /path/to/file | column -x 
+# table mode ':' delimitor
+cat /path/to/file | column -t -s ":"
+# table mode with headers
+cat /path/to/file | column -t -s ":" -N header1,header2
+# out to json
+cat /path/to/file | column -t -s ":" -J -n /path/to/output
 ```
 
 named pipe
@@ -36,12 +52,23 @@ sleep infinity > /path/to/pipe
 echo 'hello' >> /path/to/pipe
 ```
 
+find
+```bash
+find . -name <name>
+```
+
+fuser
+```bash
+# find which program is using port
+fuser -v -n tcp <port>
+```
+
 find which port a disk is connected to
 ```bash
 for i in /dev/disk/by-path/*;do [[ ! "$i" =~ '-part[0-9]+$' ]] && echo "Port $(basename "$i"|grep -Po '(?<=ata-)[0-9]+'): $(readlink -f "$i")";done
 ```
 
-logs
+kernel logs
 ```bash
 journalctl
 dmidecode
@@ -66,7 +93,7 @@ done
 exec
 ```bash
 # replace currect process with new one
-exec echo "leaving this script forever  $0"   # Exit from script here.
+exec echo "leaving this script forever $0"   # Exit from script here.
 
 # ----------------------------------
 # The following line never happens
@@ -76,7 +103,7 @@ echo "This echo will never echo."
 
 chown
 ```bash
-chown <user> /path/to/file
+chown <user>:<group> /path/to/file
 ```
 
 curl
@@ -92,6 +119,10 @@ curl --proto="https" -Ssf <url> -o <output>
 curl -LO <url>
 # use custom ca cert 
 curl --cacert /path/to/ca.crt <url>
+# no ssl verification
+curl -k <url>
+# show headers only with verbose
+curl -Iv <url>
 ```
 
 yes
@@ -108,6 +139,7 @@ grep -P <pattern> # perl regex
 grep -G <pattern> # basic regex
 grep -F "something" # fixed strings
 grep -v "something" # reverse match
+grep -rn "something" # recursive grep in each file
 ```
 
 stdin, stdout, stderr
@@ -140,7 +172,7 @@ remove broken symlinks
 find -xtype l -delete
 ```
 
-passing stdin to echo / printf
+xargs
 ```bash
 echo 'something' | xargs -0 printf '%s' # -0 to remove null terminated
 ```
@@ -157,7 +189,7 @@ osc52 escape sequence
 echo '\e]52;c;%s\a' # or \033]52;c;%s\007 if prefer ascii
 ```
 
-ascii table
+ascii manpage
 ```bash
 man ascii
 ```
@@ -171,7 +203,6 @@ dpkg --print-architecture # arch
 perl
 ```bash
 perl -pe 's/\w.*//' # loop(work like sed) and do not assume files 
-sed -E 's/\w.*//' # this works the same way
 ```
 
 awk
@@ -186,6 +217,8 @@ awk '{printf "%s ", $0}'
 awk -v ORS=" " '{print $0}'
 # ternary
 awk '{print (NR==1 ? $1 : "")}'
+# sum
+awk '{sum += $1} END {print sum}'
 ```
 
 sed
@@ -200,20 +233,20 @@ sed '1 i <text>'
 sed '$ i <text>'
 # add text at the last line
 sed '$ a <text>'
+# extended regex to use \w
+sed -E 's/\w.*//'
 ```
 
-mount usb
+usb
 ```bash
 # find usb device something like /dev/sdb
 fdisk -l
 # or use
 ls -l /dev/disk/by-id/usb-*
+# mount usb
 mount /path/to/dev /path/to/mount # mount to path
 umount /path/to/dev # unmount
-```
-
-format usb
-```bash
+# format usb
 sudo cfdisk /path/to/dev # must be unmounted
 sudo mkfs.vfat /path/to/dev # for vfat fs
 ```
@@ -228,10 +261,9 @@ echo $(LC_ALL=C tr -dc $CHAR < /dev/urandom | head -c $LENGTH)
 
 # Networking
 
-ip
+ip address
 ```bash
 ip link # show all network interfaces
-# show ip address
 ifconfig
 ip addr
 hostname -i
@@ -248,11 +280,6 @@ dns
 # /etc/resolv.conf
 nameserver 8.8.8.8
 nameserver 8.8.4.4
-```
-
-find open ports
-```bash
-lsof -i <port> # find open port
 ```
 
 connections

@@ -26,6 +26,46 @@ void foo(int arr[]) {
 }
 ```
 
+string
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+typedef struct {
+	char *input;
+} Foo;
+
+int main(void) {
+	char *string = "Some value";
+	// assign value on declaration
+	Foo a = {
+		.input = string;
+	};
+	printf("%s\n", a.input);
+
+	// declaration without assigning value
+	Foo b = {};
+	// need to make sure enough memory is allocated
+	b.input = malloc(sizeof(a.input) + 1 /* for NULL terminated */); 
+	strcpy(b.input, a.input);
+	printf("%s\n", b.input);
+
+	// or with a struct pointer
+	Foo *c = {};
+	c = malloc(sizeof(c));
+	c->input = a.input;
+	printf("%s\n", c->input);
+
+	// always free memory
+	free(b.input);
+	free(c);
+
+	return 0;
+}
+
+```
+
 struct
 ```c
 #include <stdio.h>
@@ -102,40 +142,30 @@ pointers
 #include <string.h>
 
 int main() {
-
     // declare a void pointer
     void *void_p;
-
     // size of void pointer is the same as int pointer
     int *int_p; 
-
     printf("size of void_p: %zu, size of int_p: %zu\n", sizeof(void_p), sizeof(int_p));
 
     int x = 0xfeedbeef;
-
     // point int_p to address of x
     int_p = &x;
-
     // point both pointers to the same address
     void_p = int_p;
-
     printf("void_p -> %p, int_p -> %p\n", void_p, int_p);
 
     // dereference pointer to point to a new address
     *int_p = 0x00c0ffee;
-
     printf("int_p value: %x\n", *(int *)int_p);
-
     // void pointer cannot be dereferenced
     // a hack to do so is with a cast
     *(int *)void_p = 0xdeadbeef;
-
     printf("void_p value: %x\n", *(int *)void_p);
     
     // because both of the pointers are pointing to the same memory address..
     // their value should be the same
     printf("void_p value: %x, int_p value: %x\n", *(int *)void_p, *(int *)int_p);
-
     // using malloc instead to create void pointer
     void_p = malloc(sizeof(int));
     *(int *)void_p = 10;
@@ -162,7 +192,6 @@ int main() {
 
 int main(void) {
     FILE *fptr = fopen("./ansi.c", "rb"); // read file
-
     fclose(fptr); // close file
 
     return 0;

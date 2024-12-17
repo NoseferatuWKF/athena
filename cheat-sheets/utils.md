@@ -94,6 +94,7 @@ exec ssh-agent
 ```
 
 ssh-add
+>[!info]
 >can be used to check connection to remote repos
 ```bash
 # maybe need to remove cached keys first
@@ -108,7 +109,8 @@ ssh-add -d ~/.ssh/another_acc
 ```
 
 gdb
-> first must enable debug mode ex: -g for gcc
+>[!hint]
+>first must enable debug mode ex: -g for gcc
 ```shell
 gdb <file> # start gdb of source file
 lay next # switch to next layout
@@ -142,6 +144,16 @@ file '/path/to/file2.mp4'
 ffmpeg -f concat -safe 0 -i files -c copy output.mp4
 # convert audio file
 ffmpeg -i <input> <output>
+# convert mkv to mp4
+ffmpeg -i /path/to/file.mkv -c:a aac -c:v libx264 /path/to/file.mp4
+# strip subs from mkv
+# use 0:s:1 to strip the second one, 0:s:2 to strip the third one, and so on.
+ffmpeg -i /path/to/file.mkv -map 0:s:0 /path/to/file.vtt
+```
+
+ffprobe
+```bash
+ffprobe /path/to/video
 ```
 
 windows drive mount
@@ -189,6 +201,11 @@ netplan
 ```bash
 # /etc/netplan/something.yaml
 sudo netplan apply
+```
+
+lsof
+```bash
+lsof -i <port> # find open port
 ```
 
 openssl

@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "2ae9ecb0cf085674",
+        "id": "afbb077f7c94cab1",
         "type": "tabs",
         "children": [
           {
-            "id": "d72770c2b5c51eae",
+            "id": "a3052e86eb657476",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "coding/go.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "go"
             }
           }
         ]
@@ -36,8 +41,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -114,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cheat-sheets/powershell.md",
+                "file": "cheat-sheets/shell.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +128,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for powershell"
+              "title": "Backlinks for shell"
             }
           },
           {
@@ -133,12 +137,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cheat-sheets/powershell.md",
+                "file": "cheat-sheets/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from powershell"
+              "title": "Outgoing links from shell"
             }
           },
           {
@@ -147,10 +151,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cheat-sheets/powershell.md"
+                "file": "cheat-sheets/shell.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of powershell"
+              "title": "Outline of shell"
             }
           },
           {
@@ -167,8 +171,7 @@
               "title": "All properties"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -186,44 +189,35 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "d72770c2b5c51eae",
+  "active": "a3052e86eb657476",
   "lastOpenFiles": [
-    "coding/go.md~",
-    "excalidraw/drawing-board.md",
-    "coding/c/syscalls.md",
-    "automation/pulumi.md",
-    "excalidraw/ .excalidraw.md",
-    "cheat-sheets/cloud/azure.md",
-    "excalidraw",
-    "private/psk/notes/2025-03-21.md",
-    "private/psk/tasks/migration.md",
-    "private/psk/tasks/schema-flattening.md",
-    "private/psk/tasks",
-    "coding/csharp/dotnet.md",
-    "coding/csharp/basics.md",
-    "coding/go.md",
-    "cheat-sheets/databases/postgres.md",
-    "cheat-sheets/databases/mssql.md",
-    "cheat-sheets/linux/core.md",
-    "automation/Makefile.md",
-    "cheat-sheets/shell.md",
-    "coding/sql.md",
-    "private/psk/overview.md",
-    "private/psk/notes/2025-03-12.md",
     "coding/csharp/blazor.md",
-    "private/psk/notes/2025-03-12.md~",
-    "cheat-sheets/utils.md",
+    "notes/template.md",
+    "notes/2024-12-16.md",
+    "coding/csharp/dotnet.md",
+    "technical/videos.md",
+    "technical/articles.md",
+    "coding/go.md",
+    "technical/technologies/kafka.md",
+    "dataview/todo.md",
+    "coding/csharp/basics.md",
     "cheat-sheets/docker.md",
-    "cheat-sheets/cloud/aws.md",
+    "networking/docker.md",
+    "notes/psk-code.md",
+    "cheat-sheets/linux/core.md",
+    "cheat-sheets/utils.md",
+    "private/unleashed/utils.md",
+    "coding/python.md",
     "cheat-sheets/dotnet.md",
-    "private/psk/goportal/drawing-board.md",
-    "private/psk/notes/2025-01-20.md~",
-    "private/psk/notes/4913",
-    "private/psk/notes/2025-01-13.md~",
-    "private/psk/notes/2025-01-12.md~",
-    "private/psk/notes/2025-01-08.md~",
-    "private/psk/notes/2025-01-07.md~",
-    "private/psk/notes/2025-01-02.md~",
+    "notes/sf.md",
+    "coding/csharp/linq.md",
+    "coding/csharp/mediatR.md",
+    "coding/csharp/asp.md",
+    "coding/csharp/use-case.md",
+    "books/Software Architecture_ The Hard Parts_ Modern Trade-Off -- Neal Ford & Mark Richards & Pramod Sadalage & Zhamak -- 1, 2021 -- O'Reilly Media -- 9781492086895 -- 6abdba667e209c75f49d97e44bc16b5c -- Anna’s Archive.pdf",
+    "technical/technologies/azure.md",
+    "technical/caching.md",
+    "technical/databases/cdc.md",
     "private/pasted-images/Pasted image 20230328073557.png",
     "private/pasted-images/Pasted image 20230328061500.png",
     "private/pasted-images/Pasted image 20230308212054.png",
@@ -233,7 +227,16 @@
     "static-assets/Pasted image 20240913173947.png",
     "static-assets/Pasted image 20240913174056.png",
     "static-assets/Pasted image 20240915211903.png",
+    "excalidraw",
     "static-assets/Pasted image 20240122163448.png",
+    "books/PRACTICAL CASSANDRA.pdf",
+    "technical/databases/cassandra",
+    "technical/Untitled",
+    "books/Zero To Production In Rust_ An introduction to backend -- Luca Palmieri -- 2024 -- Independently Published -- 08dbf05bdffc83b1d52a4f44ee15a23c -- Anna’s Archive.pdf",
+    "books/Zero To Production In Rust_ An introduction to backend -- Luca Palmieri -- 2024 -- Independently Published -- 08dbf05bdffc83b1d52a4f44ee15a23c -- Anna’s Archive.pdf.crdownload",
+    "books/100 Go Mistakes and How to Avoid Them -- Teiva Harsanyi -- 1, 2022 -- Manning Publications _ Simon and Schuster -- 9781617299599 -- 72f34ea8de4e605e55bc7b494a907ee6 -- Anna’s Archive.pdf",
+    "books/100 Go Mistakes and How to Avoid Them -- Teiva Harsanyi -- 1, 2022 -- Manning Publications _ Simon and Schuster -- 9781617299599 -- 72f34ea8de4e605e55bc7b494a907ee6 -- Anna’s Archive.pdf.crdownload",
+    "books/unix6.pdf",
     "networking/proxmox/home-network.canvas",
     "technical/architectures/micro-kernel.canvas",
     "private/unleashed/shopify-integration.canvas",

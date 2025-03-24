@@ -21,6 +21,13 @@ select sum(numbackends) from pg_stat_database;
 
 copy to/from
 ```sql
-copy table to /path/to/file.csv delimiter ',' csv quote '"';
-copy table from /path/to/file.csv delimiter ',' csv quote '"';
+\copy table to /path/to/file.csv delimiter ',' csv quote '"';
+\copy table from /path/to/file.csv delimiter ',' csv quote '"';
+```
+
+count all records in database
+```sql
+SELECT schemaname,relname,n_live_tup 
+  FROM pg_stat_user_tables 
+ORDER BY schemaname, n_live_tup DESC;
 ```

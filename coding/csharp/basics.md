@@ -41,6 +41,7 @@ class Foo
 struct
 >[!info]
 >struct is a value type, while classes are reference types.
+
 ```cs
 struct Foo
 {
@@ -197,6 +198,7 @@ shape.Draw();
 enum
 >[!info]
 >it's a value type!
+
 ```cs
 class Foo
 {
@@ -271,6 +273,7 @@ class Foo
 using
 >[!info]
 >used to define the scope of a resource used in a block which will be disposed once the resource is out of scope
+
 ```cs
 class Program
 {
@@ -440,6 +443,7 @@ class Program
 [indexers](https://learn.microsoft.com/en-US/dotnet/csharp/programming-guide/indexers/)
 >[!info]
 >think of custom collections
+
 ```cs
 namespace basics
 {

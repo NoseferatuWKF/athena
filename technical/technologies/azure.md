@@ -1,5 +1,5 @@
 # Resource Hierarchy
-Azure Account -> Root Management Group -> Management Group -> Subscription Resource Group -> Resource
+Azure Account -> Root Management Group -> Management Group -> Subscription -> Resource Group -> Resource
 
 # Identity, Authentication & Authorization
 
@@ -60,7 +60,7 @@ Local Network Gateway
 IPSec S2S VPN
 P2S VPN
 Azure ExpressRoute
-Azure Traffic Manager
+## Azure Front Door
 ## Azure CDN
 ## Azure DNS
 
@@ -70,7 +70,7 @@ Azure Traffic Manager
 Azure Pipelines
 Azure Repos
 Azure Boards
-## Azure BluePrints
+## Azure Blueprints
 Environment
 Role assignment
 Policy assignment

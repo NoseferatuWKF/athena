@@ -57,7 +57,8 @@ git stash # I think this is git stash push?
 git stash --all # include untracked
 git stash pop # apply + drop
 git stash show # show changes that will be applied
-git stash clear # remove stash
+git stash drop # remove recent stash
+git stash clear # remove all stash
 ```
 
 playground

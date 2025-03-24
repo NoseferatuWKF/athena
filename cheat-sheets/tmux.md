@@ -2,44 +2,24 @@
 
 keybind config
 ```bash
-list-keys # view all keybinds, or bind ?
 bind <key> run-shell <command> # run command on keybind
 bind -r <key> ... # repeat command on key
 bind -n <key> ... # bind does not require prefix
 ```
 
-dump env
-```bash
-# can use in config using #<env>
-tmux display-message -a
-```
-
-buffers
-```bash
-bind = # choose paste buffer
-```
-
-personal
->most of them are tmux split pane scripts
-```bash
-bind ! run-shell "teamocil.sh connect-be"
-bind @ run-shell "teamocil.sh connect-idp"
-bind N run-shell "nvim_note.sh"
-```
-
-sessions
+commands
+>[!hint]
+>all tmux commands can be used in tmux using prefix + :
 ```bash
 tmux # create new session
 tmux a # attach to last session
 tmux ls # list sessions
-bind w # window selection across sessions
-bind s # sessions selection
-```
-
-panes
-```bash
-bind | # split horizontal
-bind - # split vertical
+tmux kill-server # kill tmux
+tmux neww # create new window
+tmux split # create a vertical/horizontal split pane
+tmux split -h # create a horizontal split pane
+tmux display-message -a # dump env, can use in config using #<env>
+tmux list-keys # view all keybinds, or bind ?
 ```
 
 popup

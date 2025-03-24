@@ -12,7 +12,7 @@ ARG CACHE_BUST=1
 [working with multiple compose files](https://docs.docker.com/compose/multiple-compose-files/)
 ```yaml
 include: another.compose.yml
-service:
+services:
 	backend:
 		depends_on: service_from_another_compose_file
 		# ----

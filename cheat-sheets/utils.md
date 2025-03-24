@@ -77,6 +77,8 @@ ssh user@host "cat /path/to/file" > /path/to/local
 ssh -T <user>@<remote>
 # local port forwarding
 ssh -L <port>:<remote>:<port> <user>@<remote>
+# put ssh into background with local port forwarding
+ssh -Nf -L <port>:<remote>:<port> <user>@<remote>
 ```
 
 ssh-server
@@ -218,6 +220,8 @@ openssl req -newkey rsa:2048 -keyout domain.key -out domain.csr
 # can be used to generate CA cert
 # nodes option will not prompt for pass phrase
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /path/to/.key -out /path/to/.crt
+# generate self-signed cert with subjectAltName
+openssl req -newkey rsa:2048 -x509 -nodes -keyout key.pem -new -out cert.pem -sha256 -days 365 -addext "subjectAltName=IP:127.0.0.1, DNS:hostname" -subj "/C=CO/ST=ST/L=LO/O=OR/OU=OU/CN=CN"
 # a2enmod enable ssl -- apache
 # /usr/local/share/ca-certificates/.crt && update-ca-certificates -- debian
 # view certificate
@@ -235,6 +239,12 @@ basicConstraints=CA:FALSE
 subjectAltName = @alt_names
 [alt_names]
 DNS.1 = domain
+```
+
+jack the ripper
+```bash
+# sha256
+jack --format:raw-sha256 /path/to/password
 ```
 
 # GUI

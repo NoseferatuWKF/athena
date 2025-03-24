@@ -182,6 +182,7 @@ general
 :cnext                  -- next file in quickfix list
 :cprev                  -- prev file in quickfix list
 q:                      -- secret command
+:compiler               -- set compiler for makeprg
 ```
 
 # Clever Tricks

@@ -2,10 +2,8 @@
 ```bash
 # remove existing certs
 dotnet dev-certs https --clean
-
 # create new cert for localhost
-dotnet dev-certs https --trust # linux does not need the --trust
-
+dotnet dev-certs https --trust
 # import existing cert for localhost
 dotnet dev-certs https --clean -i /path/to/file.pfx -p password
 ```
@@ -15,6 +13,8 @@ start server
 dotnet run --project /path/to/project.csproj
 # with HMR
 dotnet watch -lp <profile>
+# start server with url, ie; http://0.0.0.0
+dotnet run --urls <ip> # can also use with dll
 ```
 
 reference

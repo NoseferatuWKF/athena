@@ -10,6 +10,9 @@ parted
 # block device
 df -h # list directory mounts
 du -sh # current directory size
+du -d 1 -h # all directory in current directory size
+ls -lah path/to/file | awk '{print $5}' # matched file sizes in current directory
+
 mkfs # format filesystem
 mkswap # format swap
 mount # mount disk
@@ -233,8 +236,9 @@ sed '1 i <text>'
 sed '$ i <text>'
 # add text at the last line
 sed '$ a <text>'
-# extended regex to use \w
 sed -E 's/\w.*//'
+# only change first occurence
+sed '0/text/s{text/new/}'
 ```
 
 usb

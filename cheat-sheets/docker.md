@@ -7,10 +7,10 @@ house keeping
 ```bash
 # kill all running containers 
 docker kill $(docker ps -q)
-
+# remove all except regex
+docker rm $(docker ps -q | grep -Ev "not (me|or me)" | cut -d ' ' -f1)
 # remove build cache
 docker builder prune
-
 # clean everything except volumes
 docker system prune
 ```
@@ -25,16 +25,12 @@ run
 ```bash
 # single file mount
 docker run --mount type=bind,source=/local/file,target=/remote/file,readonly alpine
-
 # ulimit
 docker run --ulimit <type>=soft:hard # e.g: memlock=-1:-1
-
 # run multiple commands within docker
 docker run --rm busybox bash -c "whoami && pwd"
-
 # runtime options, good for benchmarking
 docker run --rm --cpu 0.8 --memory 256m busybox
-
 # overwrite entrypoint, sadly can't do anything for CMD
 docker run --entrypoint bash grafana/k6
 ```
@@ -43,7 +39,6 @@ cp
 ```bash
 # container to local
 docker cp container:/path/to/file/in/container /path/to/local
-
 # local to container
 docker cp /path/to/local container:/path/to/file/in/container
 ```

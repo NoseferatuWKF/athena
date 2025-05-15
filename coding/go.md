@@ -806,11 +806,46 @@ func main() {
 }
 ```
 
+go embed
+```go
+package main
+
+import (
+	"embed"
+	"fmt"
+)
+
+//go:embed hello.txt
+var s string
+
+func main() {
+	fmt.Println(s)
+}
+```
+
+build command
 ```bash
 # build using
-go build -tag foo
+go build -tags foo /path/to/src
 # or run using
-go build -tag foo
+go build -tags foo /path/to/src
+# optimized build
+go build -ldflags '-s -w' /path/to/src
+# static linked build
+CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"' /path/to/src
+# super optimized build
+go build -ldflags '-s -w' -o /path/to/bin /path/to/src && upx --brute /path/to/bin
+```
+
+optimized docker image
+```Dockerfile
+FROM scratch
+WORKDIR /app
+COPY /path/to/bin .
+# For SSL
+COPY --from=alpine:latest /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+EXPOSE 8080
+CMD ["/app/path/to/bin"]
 ```
 
 context

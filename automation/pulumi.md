@@ -1,3 +1,5 @@
+# Getting Started
+
 installation
 ```bash
 curl -fsSL https://get.pulumi.com | sh
@@ -19,12 +21,74 @@ pulumi preview
 pulumi up
 ```
 
-state & backends
+login
 ```bash
+# use pulumi cloud
+pulumi login
 # use local fs, pointed to ~/.pulumi
 pulumi login -l
 # use local fs, with path
 pulumi login file:///path/to/backend
+# GCP backend
+pulumi login gs://<bucket>
+```
+
+config
+```bash
+pulumi config set <key> <value>
+pulumi config get <key>
+# set structured value
+pulumi config set --path 'parent.child' <value>
+# set secret with path
+pulumi config set --secret --path 'sql.dbPassword' <value>
+```
+
+refresh
+```bash
+# only show the preview without changing the local state
+pulumi refresh --preview-only
+# show detailed diffs
+pulumi refresh --diff
+# print error if there is drift
+pulumi refresh --expect-no-changes
+```
+
+state
+```bash
+# delete a resource in a stack
+pulumi state delete <urn> 
+# rename a resource
+pulumi state rename <urn>
+# move resource to a different stack
+pulumi state move <urn> --source <from> --dest <to>
+```
+
+stack
+```bash
+# create new stack with fully qualified name
+pulumi stack init orgName/projectName/stackName
+# list stacks under current project
+pulumi stack ls
+# change active stack
+pulumi stack select orgName/projectName/stackName
+# check current selected stack
+pulumi stack
+# deploy/update stack
+pulumi up
+# get output values from stack
+pulumi stack output --json
+# get decrypted secret output
+pulumi stack output <name> --show-secrets
+# import stack deployment
+pulumi stack import --file /path/to/stack.json
+# export stack deployment
+pulumi stack export --file /path/to/stack.json
+# destroy stack resources
+pulumi destroy
+# remove stack
+pulumi stack rm
+# change secret provider
+pulumi stack change-secrets-provider <provider>
 ```
 
 [Pulumi.yaml](https://www.pulumi.com/docs/iac/concepts/projects/project-file/#pulumi-project-file-reference)
@@ -58,32 +122,66 @@ plugins:
       version: 1.2.3
 ```
 
-# stacks
+# Stack
 
-commands
+valid naming convention
+- `orgName/projectName/stackName`
+- `orgName/stackName`
+- `stackName`
+
+get stack name
+```go
+stack := ctx.Stack()
+```
+
+stack output
+```go
+ctx.Export("x", pulumi.String("hello"))
+```
+
+reading output from stack references
+```go
+infra, err := pulumi.NewStackReference(ctx, ...)
+if err != nil {
+    return err
+}
+ip := infra.GetOutput("privateIp")
+logKey := ip.ApplyT(func(ip string) string {
+    return fmt.Sprintf("logs/%s.log", ip)
+}).(StringOutput)
+logFile := s3.NewBucketObject(ctx, "log", &s3.BucketObjectArgs{
+    // ...
+    Key: logKey,
+})
+```
+
+# Use Case
+
+existing resources
+>[!hint]
+>Usually theres are import section on the provider documentation with an example command
 ```bash
-# create new stack with fully qualified name
-pulumi stack init orgName/projectName/stackName
-# list stacks under current project
-pulumi stack ls
-# change active stack
-pulumi stack select orgName/projectName/stackName
-# check current selected stack
-pulumi stack
-# deploy/update stack
+pulumi import <type> <name> <id>
+# copy the code generated and run
 pulumi up
-# get output values from stack
-pulumi stack output --json
-# get decrypted secret output
-pulumi stack output <name> --show-secrets
-# import stack deployment
-pulumi stack import --file /path/to/stack.json
-# export stack deployment
-pulumi stack export --file /path/to/stack.json
-# destroy stack resources
-pulumi destroy
-# remove stack
-pulumi stack rm
+# to remove the existing resource, first need to remove protection
+pulumi state unprotect <urn>
+```
+
+migrating between backends
+```bash
+# switch to the backend/stack we want to export
+pulumi login -l
+pulumi stack select my-app-production
+# export the stack's state to a local file
+pulumi stack export --show-secrets --file my-app-production.stack.json
+# logout and login to the desired new backend
+pulumi logout
+pulumi login # default to Pulumi Cloud
+# create a new stack with the same name on pulumi.com
+pulumi stack init my-app-production
+# import the new existing state into pulumi.com
+pulumi stack import --file my-app-production.stack.json
 ```
 
 stack output
@@ -93,3 +191,5 @@ stack references
 
 outputs
 secrets
+
+[Organizing Projects Stacks](https://www.pulumi.com/docs/iac/using-pulumi/organizing-projects-stacks/)

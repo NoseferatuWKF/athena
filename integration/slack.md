@@ -1,1 +1,4 @@
 # [Slack](https://api.slack.com/#read_the_docs)
+
+[formatting](https://api.slack.com/reference/surfaces/formatting#linking-urls)
+[Block Kit Builder](https://app.slack.com/block-kit-builder/T08QZDNCCTZ#%7B%22blocks%22:%5B%7B%22type%22:%22section%22,%22text%22:%7B%22type%22:%22mrkdwn%22,%22text%22:%22This%20message%20contains%20a%20URL%20http://example.com/%5CnSo%20does%20this%20one:%20www.example.com%5CnThis%20message%20contains%20a%20URL%20%3Chttp://example.com/%3E%5Cn%3Chttp://www.example.com%7CThis%20message%20*is*%20a%20link%3E%5Cn%3Cmailto:bob@example.com%7CEmail%20Bob%20Roberts%3E%22%7D%7D%5D%7D)

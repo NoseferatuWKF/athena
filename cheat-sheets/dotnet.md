@@ -35,3 +35,13 @@ dotnet build -ts # list all target
 dotnet build -t:<target> # execute target tasks
 dotnet build -preprocess # dump source without building
 ```
+
+ef
+```bash
+# list dbcontext
+dotnet ef dbcontext list
+# create migration
+dotnet ef migrations add <name> --project /path/to/project --startup-project /path/to/startup-project --context <DbContext> -c <Configuration> --output-dir /path/to/output
+# run migration
+dotnet ef database update --project /path/to/project --startup-project /path/to/startup-project --context <DbContext> -c <Configuration> -- --environment <env>
+```

@@ -168,7 +168,7 @@ git maintenance start
 patching
 ```bash
 # create patch file
-git diff <branch> <file>
+git diff <branch> > /path/to/patch
 # apply patch
 git apply <diff>
 # if diff is in remote

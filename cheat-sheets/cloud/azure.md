@@ -31,6 +31,14 @@ ssh -Nf -L <host>:<port>:<remote>:<port> -i ~/.ssh/ssh.pem <user>@<remote>
 sqlcmd -S <host>,<port> -U <db-user>@<remote> -P <password> -d <database>
 ```
 
+storage
+```bash
+az storage container list --account-name <storage-account>
+az storage queue list --account-name <storage-account>
+az storage blob download-batch -d /path/to/local -s https://<storage-account>/container --overwrite
+```
+
+
 [ADO pipeline predefined variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml)
 
 acr
@@ -60,6 +68,14 @@ az containerapp create --name $CONTAINER_APP_NAME --resource-group $RESOURCE_GRO
 az containerapp revision copy --name $CONTAINER_APP_NAME --resource-group $RESOURCE_GROUP --image "$REGISTRY_NAME.azurecr.io/$CONTAINER_APP_NAME:$IMAGE_TAG" --output none
 # view container app
 az containerapp show --name $CONTAINER_APP_NAME --resource-group $RESOURCE_GROUP
+```
+
+web app
+```bash
+# deploy via zip deploy endpoint
+curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+# deploy zip via cli
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <zip-package-path>
 ```
 
 # bicep
@@ -94,10 +110,6 @@ az deployment group create --resource-group <resource-group-name> --template-fil
 az deployment operation group list --resource-group <resource-group-name> --name <deployment-name>
 # get output value after deployment
 az deployment group show --resource-group <your-resource-group> --name <your-deployment-name> --query properties.outputs.myOutput.value
-# deploy via zip deploy endpoint
-curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
-# deploy zip via cli
-az webapp deploy --resource-group <group-name> --name <app-name> --src-path <zip-package-path>
 ```
 
 [functions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions)

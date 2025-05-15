@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "2ae9ecb0cf085674",
+        "id": "07e9c6b7a6302380",
         "type": "tabs",
         "children": [
           {
-            "id": "d72770c2b5c51eae",
+            "id": "d3cab0a33d3ccf2d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "private/psk/overview.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "overview"
             }
           }
         ]
@@ -49,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "top level statemen",
+                "query": "q",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -147,10 +152,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cheat-sheets/powershell.md"
+                "file": "private/psk/overview.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of powershell"
+              "title": "Outline of overview"
             }
           },
           {
@@ -172,8 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,44 +193,44 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "d72770c2b5c51eae",
+  "active": "d3cab0a33d3ccf2d",
   "lastOpenFiles": [
-    "cheat-sheets/linux/core.md~",
-    "cheat-sheets/linux/4913",
-    "cheat-sheets/cloud/azure.md",
-    "coding/go.md~",
-    "excalidraw/drawing-board.md",
-    "coding/c/syscalls.md",
-    "automation/pulumi.md",
-    "excalidraw/ .excalidraw.md",
-    "excalidraw",
-    "private/psk/notes/2025-03-21.md",
-    "private/psk/tasks/migration.md",
-    "private/psk/tasks/schema-flattening.md",
-    "private/psk/tasks",
-    "coding/csharp/dotnet.md",
-    "coding/csharp/basics.md",
-    "coding/go.md",
-    "cheat-sheets/databases/postgres.md",
-    "cheat-sheets/databases/mssql.md",
+    "private/psk/notes/2025-05-15.md",
+    "technical/oAuth/basics.md",
     "cheat-sheets/linux/core.md",
-    "automation/Makefile.md",
-    "cheat-sheets/shell.md",
-    "coding/sql.md",
     "private/psk/overview.md",
-    "private/psk/notes/2025-03-12.md",
-    "coding/csharp/blazor.md",
-    "private/psk/notes/2025-03-12.md~",
-    "cheat-sheets/utils.md",
-    "cheat-sheets/docker.md",
-    "cheat-sheets/cloud/aws.md",
-    "cheat-sheets/dotnet.md",
-    "private/psk/goportal/drawing-board.md",
-    "private/psk/notes/2025-01-20.md~",
+    "private/psk/notes/2025-05-14.md~",
     "private/psk/notes/4913",
-    "private/psk/notes/2025-01-13.md~",
-    "private/psk/notes/2025-01-12.md~",
-    "private/psk/notes/2025-01-08.md~",
+    "private/psk/notes/2025-05-14.md",
+    "technical/oAuth/oauth-flows.md",
+    "private/psk/candi/drawing-board.md",
+    "private/psk/notes/2025-05-13.md",
+    "technical/oAuth/jwt.md",
+    "cheat-sheets/databases/postgres.md",
+    "integration/slack.md",
+    "coding/sql.md",
+    "cheat-sheets/cloud/gcp.md",
+    "cheat-sheets/cloud/azure.md",
+    "technical/technologies/azure.md",
+    "private/psk/notes/2025-05-08.md",
+    "private/psk/candi/twillio.md",
+    "private/psk/candi/botpress.md",
+    "technical/chaos-engineering.md",
+    "notes/template.md",
+    "private/psk/job-portal/drawing-board.md",
+    "private/psk/candi",
+    "private/psk/tasks/migration.md",
+    "private/psk/tasks/reports.md",
+    "private/psk/tasks/schema-flattening.md",
+    "private/psk/notes/2025-05-02.md",
+    "private/psk/notes/2025-04-30.md",
+    "private/psk/notes/2025-04-24.md~",
+    "private/psk/notes/2025-04-23.md~",
+    "private/psk/notes/2025-04-22.md~",
+    "private/psk/notes/2025-04-21.md~",
+    "private/psk/notes/2025-04-17.md~",
+    "private/psk/notes/2025-04-16.md~",
+    "private/psk/notes/2025-04-15.md~",
     "private/pasted-images/Pasted image 20230328073557.png",
     "private/pasted-images/Pasted image 20230328061500.png",
     "private/pasted-images/Pasted image 20230308212054.png",

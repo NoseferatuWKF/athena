@@ -3,6 +3,11 @@ connect to db
 psql postgresql://[user]:[password]@[host]:[port][...][/dbname]?[param=value&...]
 ```
 
+restore dump from sql
+```bash
+psql -f /path/to/back.sql -U <user>
+```
+
 commands
 ```bash
 \l # list dbs
@@ -30,4 +35,28 @@ count all records in database
 SELECT schemaname,relname,n_live_tup 
   FROM pg_stat_user_tables 
 ORDER BY schemaname, n_live_tup DESC;
+```
+
+kill all connections
+```sql
+SELECT pg_terminate_backend(pid)
+FROM pg_stat_activity
+WHERE datname = 'your_database_name';
+```
+
+grant
+```sql
+--ACCESS DB
+REVOKE CONNECT ON DATABASE nova FROM PUBLIC;
+GRANT  CONNECT ON DATABASE nova  TO user;
+
+--ACCESS SCHEMA
+REVOKE ALL     ON SCHEMA public FROM PUBLIC;
+GRANT  USAGE   ON SCHEMA public  TO user;
+
+--ACCESS TABLES
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC ;
+GRANT SELECT                         ON ALL TABLES IN SCHEMA public TO read_only ;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO read_write ;
+GRANT ALL                            ON ALL TABLES IN SCHEMA public TO admin ;
 ```

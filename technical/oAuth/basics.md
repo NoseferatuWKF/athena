@@ -124,7 +124,7 @@
 
 ## Resource Owner Password Credentials
 
-## Access Token Request
+### Access Token Request
 
 - grant_type: REQUIRED, value must be "password"
 - username: REQUIRED

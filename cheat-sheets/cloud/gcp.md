@@ -54,10 +54,16 @@ gcloud kms keys versions destroy key-version --location "global" --keyring "keyr
 
 gcsfuse
 ```bash
+# clone from official repo
+git clone --depth 1 https://github.com/GoogleCloudPlatform/gcsfuse.git
+# build image
+docker build -t gcsfuse .
 # run with docker
 docker run --rm -it --name gcsfuse -h gcsfuse --privileged -v /path/to/local:/gcs:rw,rshared gcsfuse
+# run with shell
+docker run --rm -it --name gcsfuse -h gcsfuse --privileged -v /path/to/local:/gcs:rw,rshared --entrypoint ash gcsfuse
 # inside container
-gcsfuse <bucket> /gcs
+gcsfuse <bucket> /path/to/local
 ```
 
 # IAM

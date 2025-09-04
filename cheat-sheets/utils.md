@@ -211,8 +211,6 @@ lsof -i <port> # find open port
 ```
 
 openssl
-- https://www.baeldung.com/openssl-self-signed-cert
-- https://www.youtube.com/watch?v=VH4gXcvkmOY
 ```bash
 # generate private key and csr
 openssl req -newkey rsa:2048 -keyout domain.key -out domain.csr

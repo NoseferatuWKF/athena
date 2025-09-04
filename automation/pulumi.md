@@ -1,3 +1,13 @@
+# Brief Comparison
+
+| Terraform                        | Pulumi                           | Crossplane                         |
+| -------------------------------- | -------------------------------- | ---------------------------------- |
+| Declarative                      | *Imperative                      | Declarative                        |
+| Agnostic                         | Agnostic                         | Kubernetes native                  |
+| Medium                           | Easy                             | Hard                               |
+| Good documentation and community | Good documentation and community | Decent documentation and community |
+| More boilerplate                 | Less boilerplate                 | More boilerplate                   |
+
 # Getting Started
 
 installation
@@ -166,6 +176,8 @@ pulumi import <type> <name> <id>
 pulumi up
 # to remove the existing resource, first need to remove protection
 pulumi state unprotect <urn>
+# or directly unprotect the resource during importing
+pulumi import --protect false <type> <name> <id>
 ```
 
 migrating between backends

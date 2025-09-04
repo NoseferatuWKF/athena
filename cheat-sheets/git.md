@@ -34,6 +34,14 @@ git cat-file -p 86f12b7 # cat the tree
 git cat-file -p ce01362 # cat the blob will output the file content
 ```
 
+fetch single commit
+```bash
+git init
+git remote add origin <url>
+git fetch --no-progress --depth 1 origin <sha1>
+git checkout FETCH_HEAD
+```
+
 log
 ```bash
 git log --oneline # digested logs
@@ -126,8 +134,11 @@ rm -rf /path/to/worktree && git worktree prune
 
 tag
 ```bash
+git tag # list tags
 git tag <name> # create tag
 git tag -d <name> # remove tag
+git push --tags # push only tag
+git push origin tag <name> # push single tag
 ```
 
 cherry-pick

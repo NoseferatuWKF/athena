@@ -47,15 +47,15 @@ WHERE datname = 'your_database_name';
 grant
 ```sql
 --ACCESS DB
-REVOKE CONNECT ON DATABASE nova FROM PUBLIC;
-GRANT  CONNECT ON DATABASE nova  TO user;
+REVOKE CONNECT ON DATABASE <db-name> FROM user;
+GRANT  CONNECT ON DATABASE <db-name> TO user;
 
 --ACCESS SCHEMA
-REVOKE ALL     ON SCHEMA public FROM PUBLIC;
-GRANT  USAGE   ON SCHEMA public  TO user;
+REVOKE ALL     ON SCHEMA public FROM user;
+GRANT  USAGE   ON SCHEMA public TO user;
 
 --ACCESS TABLES
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC ;
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM user ;
 GRANT SELECT                         ON ALL TABLES IN SCHEMA public TO read_only ;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO read_write ;
 GRANT ALL                            ON ALL TABLES IN SCHEMA public TO admin ;

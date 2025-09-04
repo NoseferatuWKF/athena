@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "07e9c6b7a6302380",
+        "id": "8ff888abe28291a8",
         "type": "tabs",
         "children": [
           {
-            "id": "d3cab0a33d3ccf2d",
+            "id": "b6f3fb142ba69a2f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "q",
+                "query": "uring",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -71,8 +71,8 @@
             "state": {
               "type": "starred",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "lucide-ghost",
+              "title": "starred"
             }
           },
           {
@@ -107,7 +107,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": false,
+                "showSearch": true,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -119,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cheat-sheets/powershell.md",
+                "file": "private/psk/overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +131,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for powershell"
+              "title": "Backlinks for overview"
             }
           },
           {
@@ -138,12 +140,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cheat-sheets/powershell.md",
+                "file": "cheat-sheets/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from powershell"
+              "title": "Outgoing links from shell"
             }
           },
           {
@@ -184,6 +186,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -193,44 +196,44 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "d3cab0a33d3ccf2d",
+  "active": "b6f3fb142ba69a2f",
   "lastOpenFiles": [
-    "private/psk/notes/2025-05-15.md",
-    "technical/oAuth/basics.md",
-    "cheat-sheets/linux/core.md",
+    "private/psk/notes/2025-09-03.md",
     "private/psk/overview.md",
-    "private/psk/notes/2025-05-14.md~",
+    "automation/pulumi.md",
+    "technical/low-lewel/networking/osi.md",
+    "private/psk/notes/2025-09-03.md~",
     "private/psk/notes/4913",
-    "private/psk/notes/2025-05-14.md",
-    "technical/oAuth/oauth-flows.md",
-    "private/psk/candi/drawing-board.md",
-    "private/psk/notes/2025-05-13.md",
-    "technical/oAuth/jwt.md",
-    "cheat-sheets/databases/postgres.md",
-    "integration/slack.md",
-    "coding/sql.md",
+    "cheat-sheets/linux/core.md",
+    "cheat-sheets/utils.md",
     "cheat-sheets/cloud/gcp.md",
+    "cheat-sheets/tmux.md",
+    "private/psk/notes/2025-08-29.md",
+    "private/psk/notes/2025-05-27.md",
+    "private/psk/notes/2025-06-02.md",
+    "private/psk/notes/2025-08-26.md",
     "cheat-sheets/cloud/azure.md",
-    "technical/technologies/azure.md",
-    "private/psk/notes/2025-05-08.md",
-    "private/psk/candi/twillio.md",
-    "private/psk/candi/botpress.md",
-    "technical/chaos-engineering.md",
-    "notes/template.md",
+    "private/psk/notes/2025-08-26.md~",
+    "cheat-sheets/git.md",
+    "private/psk/notes/2025-08-20.md",
+    "coding/go.md",
+    "cheat-sheets/databases/postgres.md",
+    "coding/sql.md",
+    "private/psk/notes/2025-08-20.md~",
+    "cheat-sheets/neovim.md",
     "private/psk/job-portal/drawing-board.md",
-    "private/psk/candi",
-    "private/psk/tasks/migration.md",
-    "private/psk/tasks/reports.md",
-    "private/psk/tasks/schema-flattening.md",
-    "private/psk/notes/2025-05-02.md",
-    "private/psk/notes/2025-04-30.md",
-    "private/psk/notes/2025-04-24.md~",
-    "private/psk/notes/2025-04-23.md~",
-    "private/psk/notes/2025-04-22.md~",
-    "private/psk/notes/2025-04-21.md~",
-    "private/psk/notes/2025-04-17.md~",
-    "private/psk/notes/2025-04-16.md~",
-    "private/psk/notes/2025-04-15.md~",
+    "integration/google.md",
+    "private/psk/notes/2025-05-22.md",
+    "technical/oAuth/basics.md",
+    "technical/oAuth/oauth-flows.md",
+    "cheat-sheets/redis.md",
+    "private/psk/notes/2025-07-09.md~",
+    "private/psk/notes/2025-06-02.md~",
+    "private/psk/notes/2025-05-28.md~",
+    "private/psk/notes/2025-05-22.md~",
+    "coding/csharp/blazor.png",
+    "static-assets/Pasted image 20240915211903.png",
+    "books/Software Architecture_ The Hard Parts_ Modern Trade-Off -- Neal Ford & Mark Richards & Pramod Sadalage & Zhamak -- 1, 2021 -- O'Reilly Media -- 9781492086895 -- 6abdba667e209c75f49d97e44bc16b5c -- Anna’s Archive.pdf",
     "private/pasted-images/Pasted image 20230328073557.png",
     "private/pasted-images/Pasted image 20230328061500.png",
     "private/pasted-images/Pasted image 20230308212054.png",
@@ -239,8 +242,7 @@
     "static-assets/Pasted image 20240915204549.png",
     "static-assets/Pasted image 20240913173947.png",
     "static-assets/Pasted image 20240913174056.png",
-    "static-assets/Pasted image 20240915211903.png",
-    "static-assets/Pasted image 20240122163448.png",
+    "excalidraw",
     "networking/proxmox/home-network.canvas",
     "technical/architectures/micro-kernel.canvas",
     "private/unleashed/shopify-integration.canvas",

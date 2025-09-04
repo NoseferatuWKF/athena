@@ -10,11 +10,11 @@
 
 ```bash
 # if this is first install
-wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz
+wget https://go.dev/dl/go<version>.linux-amd64.tar.gz
 # **Do not** untar the archive into an existing /usr/local/go tree. This is known to produce broken Go installations.
-sudo tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go<version>.linux-amd64.tar.gz
 # for consecutive installs
-sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go<version>.linux-amd64.tar.gz
 # add into PATH
 export PATH=$PATH:/usr/local/go/bin
 # and finally validate installaion
@@ -825,9 +825,9 @@ func main() {
 
 build command
 ```bash
-# build using
+# build using tags
 go build -tags foo /path/to/src
-# or run using
+# or run using tags
 go build -tags foo /path/to/src
 # optimized build
 go build -ldflags '-s -w' /path/to/src

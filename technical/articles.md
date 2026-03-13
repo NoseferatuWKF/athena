@@ -67,7 +67,6 @@ uncle bob summary:
 [Extreme HTTP Performance Tuning: 1.2M API req/s on a 4 vCPU EC2 Instance](https://talawah.io/blog/extreme-http-performance-tuning-one-point-two-million/)
 [The API Churn/Security Trade-off](https://intercoolerjs.org/2016/02/17/api-churn-vs-security.html)
 [Schema Stitching vs GraphQL Federation](https://hygraph.com/blog/schema-stitching-vs-graphql-federation-vs-content-federation)
-[How I write HTTP servers in GO after 13 years](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)
 [The Shodan Programmer](https://mozinc.wordpress.com/2017/06/18/99/)
 [How Developers Stop Learning: Rise of the Expert Beginner](https://daedtech.com/how-developers-stop-learning-rise-of-the-expert-beginner/)
 [Scrum vs Kanban vs Lean vs XP](https://www.objectstyle.com/blog/agile-scrum-kanban-lean-xp-comparison)

@@ -76,7 +76,7 @@ $password
 symbols 
 ```bash
 $$ # parent process
-%! # process that was just started and backgrounded
+$! # process that was just started and backgrounded
 ```
 
 ## zsh

@@ -24,6 +24,10 @@ lspci -v # list devices verbose
 lsblk -f # mount points with type of fs
 lscpu # dump cpu information
 ss # socket statistics
+
+# bootup check
+systemd-analyze
+systemd-analyze blame
 ```
 
 column
@@ -129,6 +133,14 @@ yes
 ```bash
 yes | some-shell-script.sh # will pass Y to all stdin
 yes -A | some-shell-script.sh # will pass A to all stdin
+```
+
+true/false
+```bash
+# sed fails but piped to true makes it successfull without output
+sed 's/' | true
+# sed success but piped to false makes it failed with exit code
+sed 's/abc/def/' | false
 ```
 
 grep
@@ -292,7 +304,7 @@ cat /etc/services # list of port aliases
 
 /proc
 ```bash
-cat /proc/sys/kernel/threads/max # max number of physical threads
+cat /proc/sys/kernel/threads-max # max number of physical threads
 cat /proc/stat # cpu stats
 cat /proc/net/tcp # tcp connections
 cat /proc/cpuinfo # cpu specs

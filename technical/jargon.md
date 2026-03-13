@@ -62,6 +62,9 @@
 >Lambda are anonymous functions, while closures are functions(so it can be a lambda as well) that encloses an environment which have access to variables outside of its current environment
 
 **Thunk**
+>A deferred function
+
+**Nullary function**
 >A function with no arguments
 
 **POSIX**
@@ -187,3 +190,12 @@ DRM
 
 IDL
 >[I]nterface [D]efinition [L]anguage
+
+ARP
+>[A]ddress [R]esolution [P]rotocol
+
+BGP
+>[B]order [G]ateway [P]rotocol
+
+DMZ
+>[D]e[M]ilitarized [Z]one. The buffer between LAN and WAN.

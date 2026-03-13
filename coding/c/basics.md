@@ -40,19 +40,19 @@ int main(void) {
 	char *string = "Some value";
 	// assign value on declaration
 	Foo a = {
-		.input = string;
+		.input = string
 	};
 	printf("%s\n", a.input);
 
 	// declaration without assigning value
-	Foo b = {};
+	Foo b = {0};
 	// need to make sure enough memory is allocated
-	b.input = malloc(sizeof(a.input) + 1 /* for NULL terminated */); 
+	b.input = malloc(sizeof(a.input) + 1 /* for NULL terminated */;
 	strcpy(b.input, a.input);
 	printf("%s\n", b.input);
 
 	// or with a struct pointer
-	Foo *c = {};
+	Foo *c = {0};
 	c = malloc(sizeof(c));
 	c->input = a.input;
 	printf("%s\n", c->input);
@@ -63,7 +63,6 @@ int main(void) {
 
 	return 0;
 }
-
 ```
 
 struct
@@ -238,4 +237,14 @@ int main() {
 	int example = system("echo this is an example");
 	return 0;
 }
+```
+
+# Translation Unit
+
+inclusion guard
+```c
+#ifndef HELLO_H_
+#define HELLO_H_
+void hello();
+#endif // HELLO_H_
 ```

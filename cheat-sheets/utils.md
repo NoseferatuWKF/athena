@@ -209,27 +209,32 @@ lsof -i <port> # find open port
 ```
 
 openssl
-- https://www.baeldung.com/openssl-self-signed-cert
-- https://www.youtube.com/watch?v=VH4gXcvkmOY
 ```bash
-# generate private key and csr
-openssl req -newkey rsa:2048 -keyout domain.key -out domain.csr
-# generate self-signed cert
-# can be used to generate CA cert
-# nodes option will not prompt for pass phrase
+# self-signed cert
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /path/to/.key -out /path/to/.crt
-# a2enmod enable ssl -- apache
-# /usr/local/share/ca-certificates/.crt && update-ca-certificates -- debian
+# update root CA
+# apache
+a2enmod enable ssl
+# debian
+/usr/local/share/ca-certificates/.crt && update-ca-certificates
+# arch
+/etc/ca-certificates/trust-source/anchors/.crt && update-ca-trust
+# CA signed cert
+# create csr
+openssl req -nodes -newkey rsa:2048 -keyout domain.key -out domain.csr
+# sign cert using CA
+openssl x509 -req -in domain.csr -CA CA.pem -CAkey CA.key -CAcreateserial -out domain.crt -days 365 -sha256 -extfile domain.ext
 # view certificate
 openssl x509 -text -noout -in /path/to/.crt
-# strip key from pfx
+# strip key from .pfx
 openssl pkcs12 -in myfile.pfx -nocerts -legacy -out priv-key.pem -passin pass:<password>
-# strip cert from pfx
+# strip cert from .pfx
 openssl pkcs12 -in myfile.pfx -nokeys -legacy -out certificate.pem -passin pass:<password>
 ```
 
+X509 V3 cert config
 ```bash
-# domain.ext config file
+# domain.ext
 authorityKeyIdentifier=keyid,issuer
 basicConstraints=CA:FALSE
 subjectAltName = @alt_names

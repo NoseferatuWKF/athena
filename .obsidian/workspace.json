@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "8fcbcf324c87577e",
+        "id": "50d81d9a40af99ac",
         "type": "tabs",
         "children": [
           {
-            "id": "9a87db3dd44da998",
+            "id": "310c98a9cabd7b77",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "technical/low-lewel/os/memory.md",
+                "file": "coding/go.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "memory"
+              "title": "go"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "uring",
+                "query": "smb",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -71,8 +71,8 @@
             "state": {
               "type": "starred",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "lucide-ghost",
+              "title": "starred"
             }
           },
           {
@@ -85,7 +85,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -107,7 +108,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -119,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cheat-sheets/shell.md",
+                "file": "coding/go.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +132,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for shell"
+              "title": "Backlinks for go"
             }
           },
           {
@@ -138,12 +141,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cheat-sheets/shell.md",
+                "file": "coding/go.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from shell"
+              "title": "Outgoing links from go"
             }
           },
           {
@@ -152,10 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cheat-sheets/shell.md"
+                "file": "coding/go.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of shell"
+              "title": "Outline of go"
             }
           },
           {
@@ -172,54 +178,58 @@
               "title": "All properties"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "9a87db3dd44da998",
+  "active": "310c98a9cabd7b77",
   "lastOpenFiles": [
-    "automation/pulumi.md",
-    "automation/terraform.md",
+    "cooking/recipes.md",
+    "cheat-sheets/linux/core.md",
+    "networking/truenas.md",
+    "cheat-sheets/proxmox.md",
+    "automation/puppet.md",
+    "networking/proxmox/home-network.canvas",
     "cheat-sheets/utils.md",
     "private/unleashed/utils.md",
-    "cheat-sheets/git.md",
-    "cheat-sheets/linux/core.md",
-    "technical/low-lewel/networking/protocols/grpc.md",
+    "cheat-sheets/OSX.md",
+    "coding/go.md",
+    "technical/articles.md",
+    "integration/google.md",
+    "coding/elixir.md",
+    "technical/low-lewel/networking/basics.md",
     "technical/jargon.md",
-    "coding/c/ipc.md",
-    "coding/c/syscalls.md",
     "coding/c/basics.md",
-    "coding/c/xcb.md",
-    "coding/csharp/dotnet.md",
-    "technical/low-lewel/os/boot.md",
-    "coding/java.md",
-    "coding/html.md",
     "excalidraw/drawing-board.md",
     "cheat-sheets/linux/Arch.md",
     "coding/css.md",
-    "coding/sql.md",
-    "coding/go.md",
+    "coding/c/ipc.md",
+    "automation/jenkins.md",
+    "technical/low-lewel/networking/Untitled.md",
+    "coding/csharp/ffi.md",
+    "coding/csharp/dotnet.md",
+    "coding/rust/basics.md",
+    "books/Zero To Production In Rust_ An introduction to backend -- Luca Palmieri -- 2024 -- Independently Published -- 08dbf05bdffc83b1d52a4f44ee15a23c -- Anna’s Archive.pdf",
     "coding/csharp/basics.md",
-    "coding/csharp/blazor.md",
+    "cheat-sheets/git.md",
+    "books/100 Go Mistakes and How to Avoid Them -- Teiva Harsanyi -- 1, 2022 -- Manning Publications _ Simon and Schuster -- 9781617299599 -- 72f34ea8de4e605e55bc7b494a907ee6 -- Anna’s Archive.pdf",
     "coding/csharp/blazor.png",
     "static-assets/Pasted image 20240915211903.png",
-    "integration/grafana.md",
-    "cheat-sheets/dotnet.md",
-    "networking/docker.md",
     "books/Software Architecture_ The Hard Parts_ Modern Trade-Off -- Neal Ford & Mark Richards & Pramod Sadalage & Zhamak -- 1, 2021 -- O'Reilly Media -- 9781492086895 -- 6abdba667e209c75f49d97e44bc16b5c -- Anna’s Archive.pdf",
     "private/pasted-images/Pasted image 20230328073557.png",
     "private/pasted-images/Pasted image 20230328061500.png",
@@ -233,12 +243,9 @@
     "books/PRACTICAL CASSANDRA.pdf",
     "technical/databases/cassandra",
     "technical/Untitled",
-    "books/Zero To Production In Rust_ An introduction to backend -- Luca Palmieri -- 2024 -- Independently Published -- 08dbf05bdffc83b1d52a4f44ee15a23c -- Anna’s Archive.pdf",
     "books/Zero To Production In Rust_ An introduction to backend -- Luca Palmieri -- 2024 -- Independently Published -- 08dbf05bdffc83b1d52a4f44ee15a23c -- Anna’s Archive.pdf.crdownload",
-    "books/100 Go Mistakes and How to Avoid Them -- Teiva Harsanyi -- 1, 2022 -- Manning Publications _ Simon and Schuster -- 9781617299599 -- 72f34ea8de4e605e55bc7b494a907ee6 -- Anna’s Archive.pdf",
     "books/100 Go Mistakes and How to Avoid Them -- Teiva Harsanyi -- 1, 2022 -- Manning Publications _ Simon and Schuster -- 9781617299599 -- 72f34ea8de4e605e55bc7b494a907ee6 -- Anna’s Archive.pdf.crdownload",
     "books/unix6.pdf",
-    "networking/proxmox/home-network.canvas",
     "technical/architectures/micro-kernel.canvas",
     "private/unleashed/shopify-integration.canvas",
     "technical/architectures/clean-architecture.canvas",

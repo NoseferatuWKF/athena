@@ -16,5 +16,5 @@ sudo pfctl -f /etc/pf.conf
 disable sleep
 ```bash
 caffeinate # will still sleep if lid close but is not permanent
-sudo pmset disablesleep 1 # disable slee even if lid is closed
+sudo pmset disablesleep 1 # disable sleep even if lid is closed
 ```

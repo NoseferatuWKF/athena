@@ -1,8 +1,8 @@
 # [Jenkins](https://www.jenkins.io/)
 
->java based
+>[!info]
+>java based;  agents based
 
->agents based
 ## Jenkins vs. Jenkins X
 
 | Jenkins                                      | Jenkins X                                  |
@@ -39,7 +39,7 @@ init
 # go to http://localhost:8080 and wait for jenkins to start up
 docker exec -it jenkins bash
 cat /var/jenkins_home/secrets/initialAdminPassword
-# paste the password in the localhost client
+# paste the password in the host client
 # install recommended plugins or choose manually
 # create first admin user
 # set root url
@@ -128,22 +128,18 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 11. Build Now
 12. Click on Job dropdown in Build History -> Console Output
 
-## Creating a pipeline
-1. Go to Jenkins dashboard
-2. Click on ` + New Item ` on the left side bar
-3. Choose pipeline
 
 ## Github integration
-1. Go to General > Pipeline > Definition
-2. Choose Pipeline script from SCM
-3. Choose Git at the SCM and fill out all the other good stuff
+1. Go to Dashboard > New Item > Pipeline
+2. In Definition section choose Pipeline script from SCM
+3. Choose Git and fill out all the other good stuff
 4. Make sure the script path is set correctly
 
 ## Enabling ssh
 1. First generate a ssh keypair and add it to the ssh-agent [[core|ssh-add]]
 2. Do a test connection with `ssh -T git@github.com` to add github to known hosts or any other way is fine as well
-3. Go to github repo and add click on settings and add a deploy key which is the pubkey
-4. Now go to Jenkins dashboard and go to Manage Jenkins > Manage Credentials
+3. Go to github repo and add click on settings -> add a deploy key -> paste pubkey
+4. Now go to Jenkins dashboard and go to Manage Jenkins > Crendentials
 5. Add a new credential
 6. In the `kind` dropdown SSH Username with private key
 7. The ID should be github username

@@ -2,6 +2,9 @@
 [official docs](https://go.dev/)
 [effective-go](https://go.dev/doc/effective_go)
 
+# Articles
+[How I write HTTP servers in GO after 13 years](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)
+
 # Videos
 [Go concurrency patterns](https://www.youtube.com/watch?v=f6kdp27TYZs)
 [Advanced Go concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)
@@ -350,6 +353,21 @@ func main() {
 }
 ```
 
+printing
+```go
+type T struct {
+    a int
+    b float64
+    c string
+}
+t := &T{ 7, -2.35, "abc\tdef" }
+fmt.Printf("%v\n", t) // &{7 -2.35 abc   def}
+fmt.Printf("%+v\n", t) // &{a:7 b:-2.35 c:abc     def}
+fmt.Printf("%#v\n", t) // &main.T{a:7, b:-2.35, c:"abc\tdef"}
+fmt.Printf("%#v\n", timeZone) // map[string]int{"CST":-21600, "EST":-18000, "MST":-25200, "PST":-28800, "UTC":0}
+
+```
+
 ## Modules
 
 file structure
@@ -442,6 +460,39 @@ output
 ```bash
 greetings: empty name
 exit status 1
+```
+
+defer, panic, recover
+```go
+package main
+
+import "fmt"
+
+func main() {
+    f()
+    fmt.Println("Returned normally from f.")
+}
+
+func f() {
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Println("Recovered in f", r)
+        }
+    }()
+    fmt.Println("Calling g.")
+    g(0)
+    fmt.Println("Returned normally from g.")
+}
+
+func g(i int) {
+    if i > 3 {
+        fmt.Println("Panicking!")
+        panic(fmt.Sprintf("%v", i))
+    }
+    defer fmt.Println("Defer in g", i)
+    fmt.Println("Printing in g", i)
+    g(i + 1)
+}
 ```
 
 ## Concurrency
@@ -644,6 +695,41 @@ changing install target
 go env -w GOBIN=/path/to/your/bin
 ```
 
+[build constraint / build tag](https://pkg.go.dev/cmd/go#hdr-Build_constraints)
+>[!hint]
+>can be used to target specific platforms and architectures
+```go
+//go:build foo
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello")
+}
+```
+
+```bash
+# build using
+go build -tag foo
+# or run using
+go build -tag foo
+```
+
+fpic
+```bash
+go build -buildmode=c-shared -o mylib.so mylib.go
+```
+
+sample cross-platform build
+```Makefile
+.PHONY: release
+release: check
+	GOOS=darwin GOARCH=amd64 $(GO) build -ldflags '$(LDFLAGS)' -o bin/darwin
+	GOOS=linux GOARCH=amd64 $(GO) build -ldflags '$(LDFLAGS)' -o bin/linux
+	GOOS=windows GOARCH=amd64 $(GO) build -ldflags '$(LDFLAGS)' -o bin/windows.exe
+```
+
 # Use-case
 
 rand
@@ -792,27 +878,6 @@ func generatorFunc(input int) <-chan int {
 }
 ```
 
-[build constraint / build tag](https://pkg.go.dev/cmd/go#hdr-Build_constraints)
->[!hint]
->can be used to target specific platforms and architectures
-```go
-//go:build foo
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Hello")
-}
-```
-
-```bash
-# build using
-go build -tag foo
-# or run using
-go build -tag foo
-```
-
 context
 ```go
 package main
@@ -842,5 +907,70 @@ func hello(w http.ResponseWriter, req *http.Request) {
 func main() {
     http.HandleFunc("/hello", hello)
     http.ListenAndServe(":8090", nil)
+}
+```
+
+ffi
+```go
+package main
+
+import "C"
+
+//export Add
+func Add(a, b int) int {
+	return a + b
+}
+
+func main() {
+
+}
+```
+
+embed
+```go
+package main
+
+import _ "embed"
+
+//go:embed hello.txt
+var hello string
+
+func main() {
+	print(hello)
+}
+```
+
+# Packages
+
+[revive](https://github.com/mgechev/revive/tree/master)
+
+[golangci-lint](https://github.com/golangci/golangci-lint)
+
+[mergo](https://github.com/darccio/mergo)
+```go
+package main
+
+import (
+    "fmt"
+    "dario.cat/mergo"
+)
+
+type foo struct {
+    a, b int
+}
+
+
+func main() {
+    var x foo
+    fmt.Println(x) // {0 0}
+
+    y := foo{a: 2}
+
+    var err error
+
+    if err = mergo.MergeWithOverwrite(&x, y); err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(x) // {2 0}
 }
 ```
